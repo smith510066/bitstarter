@@ -10,8 +10,8 @@ fs.readFile('index.html',function (err, data) {
 // mainData = data
 
 buf = new Buffer(data);
-console.log(buf.length);     // 6
-console.log(buf.toString()); // ABCDEF
+//console.log(buf.length);     // 6
+//console.log(buf.toString()); // ABCDEF
 mainData = buf.toString();
  // return mainData;
 });
