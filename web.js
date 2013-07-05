@@ -2,13 +2,15 @@ var express = require('express');
 var fs = require('fs');
 var app = express.createServer(express.logger());
 
-var responsePage = fs.readFile('index.html',function (err, data) {
-  if (err) throw err;
-  return data;
+fs.readFile('index.html',function (err, data) {
+ // if (err) throw err;
+console.log(data); 
+ mainData = data
+ // return mainData;
 });
 
 app.get('/', function(request, response) {
-  response.send(responsePage);
+  response.send(mainData);
 });
 
 var port = process.env.PORT || 5000;
