@@ -67,12 +67,12 @@ if(require.main == module) {
 	
      .option('-c, --checks <check_file>', 'Path to checks.json', clone(assertFileExists), CHECKSFILE_DEFAULT)
         .option('-f, --file <html_file>', 'Path to index.html', clone(assertFileExists), HTMLFILE_DEFAULT)
-       .option('-s, --site <site>', 'actual site')
+       .option('-s, --url <url>', 'actual url')
 	.parse(process.argv);
 
-    if(program.site != undefined){
+    if(program.url != undefined){
 	
-	rest.get(program.site).on('complete', function(result) {
+	rest.get(program.url).on('complete', function(result) {
 	    if (result instanceof Error) {
 		sys.puts('Error: ' + result.message);
 		this.retry(5000); // try again after 5 sec
