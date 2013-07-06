@@ -67,7 +67,7 @@ if(require.main == module) {
 	
      .option('-c, --checks <check_file>', 'Path to checks.json', clone(assertFileExists), CHECKSFILE_DEFAULT)
         .option('-f, --file <html_file>', 'Path to index.html', clone(assertFileExists), HTMLFILE_DEFAULT)
-       .option('-s, --url <url>', 'actual url')
+       .option('-u, --url <url>', 'actual url')
 	.parse(process.argv);
 
     if(program.url != undefined){
