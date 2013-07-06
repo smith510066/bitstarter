@@ -62,52 +62,42 @@ var clone = function(fn) {
     return fn.bind({});
 };
 
-var getwebpage = function(page,callback){rest.get(page).on('complete', function(result) {
-  if (result instanceof Error) {
-    sys.puts('Error: ' + result.message);
-    this.retry(5000); // try again after 5 sec
-  } else {
-  //  sys.puts(result);
-//      console.log(result);
-console.log(page)
-      fs.writeFile('webpagecode.txt', result, function (err) {
-	 if (err) throw err;
-	  program.file = 'webpagecode.txt'
-	  console.log('done');
-      });
-      
-  }
-});
-callback();
-}
-
-
 if(require.main == module) {
     program
-	.option('-c, --checks <check_file>', 'Path to checks.json', clone(assertFileExists), CHECKSFILE_DEFAULT)
-	.option('-f, --file <html_file>', 'Path to index.html', clone(assertFileExists), HTMLFILE_DEFAULT)
+	
+     .option('-c, --checks <check_file>', 'Path to checks.json', clone(assertFileExists), CHECKSFILE_DEFAULT)
+        .option('-f, --file <html_file>', 'Path to index.html', clone(assertFileExists), HTMLFILE_DEFAULT)
        .option('-s, --site <site>', 'actual site')
 	.parse(process.argv);
 
     if(program.site != undefined){
+	
+	rest.get(program.site).on('complete', function(result) {
+	    if (result instanceof Error) {
+		sys.puts('Error: ' + result.message);
+		this.retry(5000); // try again after 5 sec
+	    } else {
 
+		fs.unlink('webpagecode.txt', function (err) {
+		});
 
-	 getwebpage(program.site.toString(), function(){
-	 checkJson = checkHtmlFile(program.file, program.checks);
-});
- }  
+		fs.writeFile('webpagecode.txt', result, function (err) {
+		    if (err) throw err;
+
+		    checkJson = checkHtmlFile('webpagecode.txt', program.checks);
+		    var outJson = JSON.stringify(checkJson, null, 4);
+		    console.log(outJson);
+		});
+	    }
+	});
+    }  
     else{
-	 checkJson = checkHtmlFile(program.file, program.checks);
-
-
+	checkJson = checkHtmlFile(program.file, program.checks);
+	var outJson = JSON.stringify(checkJson, null, 4);
+	console.log(outJson);
     }
 
-//var checkJson = checkHtmlFile(program.file, program.checks);
-
-
-   var outJson = JSON.stringify(checkJson, null, 4);
-    console.log(outJson);
-
-} else {
+}
+else {
     exports.checkHtmlFile = checkHtmlFile;
 }
