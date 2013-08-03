@@ -14,7 +14,7 @@
           rel="stylesheet" type="text/css">
     <style type="text/css">
 
-
+      /* Large desktop */
       @media (min-width: 980px) { 
         body {
          padding-top: 60px;
@@ -27,7 +27,7 @@
        }
       }
 
-
+      /* Landscape phones and down */
       @media (max-width: 480px) { 
        .copy {
          padding: 2.5% 10%;
@@ -42,7 +42,7 @@
 
       /* All form factors */
 
- 
+      /* Main body and headings */
       body{
         font-family: 'Open Sans', Helvetica, Arial, sans-serif;
       }
@@ -60,7 +60,7 @@
         line-height: 24px;
       }
 
-
+      /* Video pitch and Action */
       .pitch {
         padding: 2.5% 0%;
       }
@@ -78,7 +78,7 @@
         color: white;
       }
 
-  
+      /* Marketing Copy and Footer */
       .copy {
         padding-top: 2.5%;
         padding-bottom: 2.5%;
@@ -101,7 +101,8 @@
   </head>
   <body>
 
-
+    <!-- Mobile-friendly navbar adapted from example. -->
+    <!-- http://twitter.github.io/bootstrap/examples/starter-template.html -->
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
@@ -118,13 +119,18 @@
               <li><a href="#about">About</a></li>
               <li><a href="#contact">Contact</a></li>
             </ul>
-          </div>
+          </div><!--/.nav-collapse -->
         </div>
       </div>
     </div>
 
-
+    <!-- We use row-fluid inside containers to achieve a resizable layout. -->
+    <!-- blogs.endjin.com/2013/04/tips-for-implementing-responsive-designs-using-bootstrap/ -->
+    <!-- http://stackoverflow.com/a/12270322 -->
     <div class="container">
+      <!-- Font and paired font of .heading/.subheading and body from Google Fonts -->
+      <!-- www.google.com/fonts/specimen/Ubuntu -->
+      <!-- www.google.com/fonts/specimen/Ubuntu#pairings -->
       <div class="row-fluid heading">
         <div class="span12">
           <h1>iTrotter</h1>
@@ -132,26 +138,32 @@
       </div> 
       <div class="row-fluid subheading">
         <div class="span12">
-
-          <p class="lead">Now you can visit cities all over the world -- right from the comfort of your own home</p>      </div>
+          <!-- Special typography from Bootstrap for lead paragraph. -->
+          <!-- http://twitter.github.io/bootstrap/base-css.html#typography -->
+          <p class="lead">Now you can visit cities all over the world -- right from the comfort of your own home</p>
+        </div>
       </div>
       <div class="row-fluid pitch">
         <div class="span5 offset1 video">
-          <img class="img-polaroid" src="http://i.istockimg.com/file_thumbview_approve/15256020/2/stock-photo-15256020-traveler-with-a-bag-at-the-speedwalk.jpg">
+          <img class="img-polaroid" alt="Placeholder" src="http://i.istockimg.com/file_thumbview_approve/15256020/2/stock-photo-15256020-traveler-with-a-bag-at-the-speedwalk.jpg">
         </div>
 
-
+        <!-- We define a new 'actions' div to contain statistics, order, and share buttons.-->
         <div class="span5 actions">
+          <div class="row-fluid">
           <div class="span8 offset2">
-            <div class="statistics">
+            <div class="row-fluid statistics">
               <div class="span4">
+                <!-- linediv-l and linediv-r give dividing lines that look
+                different in horizontal and vertical layouts, illustrating
+                media queries. -->
                 <div class="linediv-l">
                 <h3>1000</h3> <p>backers</p>
                 </div>
               </div>
               <div class="span4">
                 <div class="linediv-c">
-                  <h3>$6000</h3> <p>of $250,000</p>
+                  <h3>$6000</h3> <p>of $10,000</p>
                 </div>
               </div>
               <div class="span4">
@@ -161,31 +173,47 @@
               </div>
             </div>
           </div>
+          <div class="row-fluid">
           <div class="span10 offset1">
+            <!-- Bootstrap progress bar -->
+            <!-- http://twitter.github.io/bootstrap/components.html#progress -->
             <div class="thermometer progress active">
               <div class="bar bar-success" style="width: 60%;"></div>
               <div class="bar bar-warning" style="width: 40%;"></div>
             </div>
           </div>
+          </div>
+          <div class="row-fluid">
           <div class="span6 offset3 order">
+            <!-- Standard Bootstrap button. -->
+            <!-- http://twitter.github.io/bootstrap/base-css.html#buttons -->
             <button class="btn btn-success btn-large">Preorder</button>
           </div>
+          </div>
+          <div class="row-fluid">
           <div class="span8 offset2 social">
+            <!-- Social buttons are not included in default Bootstrap. -->
+            <!-- See: http://noizwaves.github.io/bootstrap-social-buttons -->
             <button class="btn btn-twitter"><i class="icon-twitter"></i> | Twitter</button>
             <button class="btn btn-facebook"><i class="icon-facebook"></i> | Facebook</button>
           </div>
+          </div>
+        </div>
         </div>
       </div>
 
-
+      <!-- Beyond this part the marketing copy begins. -->
+      <!-- https://developer.mozilla.org/en-US/docs/Web/CSS/text-align -->
+      <!-- http://twitter.github.io/bootstrap/base-css.html#images -->
+      <!-- http://placehold.it -->
       <div class="row-fluid section1">
         <div class="span5 offset1 asset">
-          <img class="img-polaroid" src="http://limitless-cove-5100.herokuapp.com/museum.png">
+          <img class="img-polaroid"  alt="Placeholder" src="http://limitless-cove-5100.herokuapp.com/museum.png">
         </div>
         <div class="span5 copy">
-          <p>
+    <p>
             
-	    Today travel is not easy or cheap...</p><ul>
+          Today travel is not easy or cheap...</p><ul>
 <li>You need lots of time to find the cheapeast available fare,</li>
 <li>You need time and money to buy luggage</li>
 <li>Even more money to get the proper visa for the country you are visiting</li>
@@ -193,37 +221,33 @@
 <li>You need the patience of dealing with airport security</li>
 <li>Plan all the logistics of getting to and from the airport in your home city and destination city</li></ul>
 
-<p>So why go thru all this hassle when there's iTrotter? With iTrotter you can visit they most beautiful adored cities in the world not only from the comfort of your own home, but for a fraction of the cost!  
+<p>So why go thru all this hassle when there's iTrotter? With iTrotter you can visit they most beautiful adored cities in the world not only from the comfort of your own home, but for a fraction of the cost!  </p>        
 
-
-
-
-
-
-          </p>
-        </div>
+</div>
       </div>
 
       <div class="row-fluid section2">
         <div class="span5 offset1 copy copy-right">
-          <p>The solution...</p>
+                   <p>The solution...</p>
 
-	  <p><a target="_blank" href="http://www.doublerobotics.com/">DoubleRobotics iPad teleconferencing robot</a> is a new technology which allows you to be literally be in 2 places at once -- even worldwide. Combined with the idea of iTrotter (and your pledge and support) we plan to first open a travel office in London - a city that is known for its Modern elegance and historical charm. Our office will staff 4-5 travel guides who will be with our iTrotter visitors who will be viewing and site seeing London (and many other cities) to come. Our travel guides will be with our iTrotter visitor every step along the way to show them famous museasums, landmarks and sites!</p>
+		     <p><a target="_blank" href="http://www.doublerobotics.com/">DoubleRobotics iPad teleconferencing robot</a> is a new technology which allows you to be literally be in 2 places at once -- even worldwide. Combined with the idea of iTrotter (and your pledge and support) we plan to first open a travel office in London - a city that is known for its Modern elegance and historical charm. Our office will staff 4-5 travel guides who will be with our iTrotter visitors who will be viewing and site seeing London (and many other cities) to come. Our travel guides will be with our iTrotter visitor every step along the way to show them famous museasums, landmarks and sites!</p>
 
 
 
-          </p>
+
         </div>
         <div class="span5 asset">
-          <img class="img-polaroid" src="http://i.istockimg.com/file_thumbview_approve/12752944/2/stock-photo-12752944-london.jpg">
+          <img class="img-polaroid"  alt="Placeholder" src="http://i.istockimg.com/file_thumbview_approve/12752944/2/stock-photo-12752944-london.jpg">
         </div>
       </div>
 
-   
+      <!-- For the FAQ, we introduce a little bit of JS, using the accordion. -->
+      <!-- This brings in jquery.js and bootstrap.js as dependencies. -->
+      <!-- http://twitter.github.io/bootstrap/javascript.html#collapse -->
       <div class="row-fluid faq">
           <div class="span10 offset1">
             <h3>FAQ</h3>
-            <div class="accordion" id="accordion2">
+        <div class="accordion" id="accordion2">
               <div class="accordion-group">
                 <div class="accordion-heading">
                   <a class="accordion-toggle" data-toggle="collapse"
@@ -249,7 +273,7 @@
                     Good question! Mainly you can't physically experience your trip fully as if you were actually there. But we feel the benefit and cost saving of not having to pack up and travel half way around the world out weights this!                    </div>
                 </div>
               </div>
-	        <div class="accordion-group">
+	              <div class="accordion-group">
                 <div class="accordion-heading">
                   <a class="accordion-toggle" data-toggle="collapse"
                      data-parent="#accordion3" href="#collapseThree">
@@ -267,7 +291,8 @@
 
       </div>
 
- 
+      <!-- Not crucial, but we put this under a CC By-SA 3.0 license. -->
+      <!-- http://creativecommons.org/licenses/ -->
       <div class="row-fluid footer">
         <div class="span12">
           <p>This work is licensed under
